@@ -4,7 +4,7 @@
 
 // Global State Store
 const STATE = {
-  token: localStorage.getItem("df_token") || "",
+  token: localStorage.getItem("df_token") || sessionStorage.getItem("df_token") || "",
   dataset: null,
   processed: null,
   courses: [],
