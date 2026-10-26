@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DemandForecast AI — Academic Course Demand Intelligence</title>
+    <meta name="description"
+        content="Enterprise machine learning platform for course demand forecasting, section planning, and curriculum resource optimization.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+
+    <!-- =================================================================
+       FULL-SCREEN LOGIN PAGE (MATCHING REFERENCE IMAGE)
+       ================================================================= -->
+    <div id="login-screen">
+        <!-- Abstract 3D Glowing Mesh Background -->
+        <div class="login-bg-mesh">
+            <div class="stripes"></div>
+            <div class="glow-orb-1"></div>
+            <div class="glow-orb-2"></div>
+            <div class="crystal-sphere-top"></div>
+            <div class="crystal-sphere-bottom"></div>
+        </div>
+
+        <div class="login-container-wrapper">
+            <!-- Upper Floating Card (Left Hero Branding + Right White Login Panel) -->
+            <div class="login-card-main">
+                <!-- Left Hero Region -->
+                <div class="login-hero-side">
+                    <div class="login-hero-header">
+                        <div class="brand-badge">
+                            <svg class="brand-icon-svg" viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="10" fill="url(#brand-grad-left)" />
+                                <path d="M12 28L18 20L24 24L30 14" stroke="#06B6D4" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <circle cx="30" cy="14" r="3" fill="#FFFFFF" />
+                                <defs>
+                                    <linearGradient id="brand-grad-left" x1="0" y1="0" x2="40" y2="40">
+                                        <stop stop-color="#1E3A8A" />
+                                        <stop offset="1" stop-color="#0F172A" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="brand-text">DemandForecast <b>AI</b></div>
+                        </div>
+
+                        <h1 class="login-hero-title">
+                            Predict Tomorrow's Course Demand.<span class="arrow">↗</span>
+                        </h1>
+
+                        <p class="login-hero-desc">
+                            Transform historical academic enrollment data into actionable course-demand forecasts with
+                            ensemble machine learning and neural architectures.
+                        </p>
+
+                        <!-- 3 Compact Feature Pills -->
+                        <div class="feature-highlights">
+                            <div class="feature-pill-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                </svg>
+                                Intelligent Section Demand Prediction
+                            </div>
+                            <div class="feature-pill-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                                    <path d="M3 9h18M9 21V9" />
+                                </svg>
+                                Multi-Model Performance Benchmarking
+                            </div>
+                            <div class="feature-pill-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                                </svg>
+                                Data-Driven Academic Operations Planning
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Glass Forecast Preview Card -->
+                    <div class="floating-preview-card">
+                        <div class="floating-preview-header">
+                            <span class="preview-title">Upcoming Term Projection</span>
+                            <span class="preview-badge-up">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="18 15 12 9 6 15" />
+                                </svg>
+                                +14.2% Fall Surge
+                            </span>
+                        </div>
+                        <div class="preview-metric-row">
+                            <div class="preview-number">18 Sections</div>
+                            <div class="preview-sub">CS100 Algorithms • Estimated 630 Enrolled</div>
+                        </div>
+                        <div class="preview-bars">
+                            <div class="preview-bar" style="height: 35%"></div>
+                            <div class="preview-bar" style="height: 48%"></div>
+                            <div class="preview-bar" style="height: 60%"></div>
+                            <div class="preview-bar" style="height: 42%"></div>
+                            <div class="preview-bar" style="height: 75%"></div>
+                            <div class="preview-bar active" style="height: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Login Form Region -->
+                <div class="login-form-side">
+                    <div class="form-brand-header">
+                        <div class="login-form-logo">
+                            <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="10" fill="#2563EB" />
+                                <path d="M12 28L18 20L24 24L30 14" stroke="#FFFFFF" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <circle cx="30" cy="14" r="3" fill="#06B6D4" />
+                            </svg>
+                            <div class="logo-title">DemandForecast <b>AI</b></div>
+                        </div>
+                        <h2>Welcome Back!</h2>
+                        <p class="subtitle">Sign in to your forecasting workspace</p>
+                    </div>
+
+                    <form id="login-form" class="auth-form" onsubmit="return false;">
+                        <div class="input-group">
+                            <label class="input-label" for="login-username">Username</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                                <input id="login-username" class="form-input" type="text" value="admin"
+                                    placeholder="Enter username" autocomplete="username" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label" for="login-password">Password</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                                <input id="login-password" class="form-input" type="password" value="admin"
+                                    placeholder="Enter password" autocomplete="current-password" required>
+                                <button type="button" id="toggle-password-btn" class="password-toggle-btn"
+                                    aria-label="Toggle password visibility">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember-me-checkbox" checked>
+                                <span>Remember me for 30 days</span>
+                            </label>
+                        </div>
+
+                        <div id="login-error-banner" class="auth-error-banner"></div>
+
+                        <button type="submit" id="btn-submit-login" class="btn-primary-login">
+                            <span>Sign In</span>
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </form>
+
+                    <div class="security-footer-note">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                        Protected by enterprise session authentication • Authorized access only
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overlapping Dashboard Preview Card (Exact Match to Reference Screenshot Composition) -->
+            <div class="login-preview-overlap">
+                <!-- Mini Sidebar -->
+                <div class="overlap-mini-sidebar">
+                    <div class="overlap-brand">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                            <rect width="24" height="24" rx="6" fill="#2563EB" />
+                            <path d="M6 17l4-5 4 3 4-7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="18" cy="8" r="2" fill="#06B6D4" />
+                        </svg>
+                        <span class="overlap-brand-name">DemandForecast</span>
+                    </div>
+                    <div class="overlap-sidebar-nav">
+                        <div class="overlap-nav-pill active">
+                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                            <span>Dashboard</span>
+                        </div>
+                        <div class="overlap-nav-pill">
+                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                            <span>Statistics</span>
+                        </div>
+                        <div class="overlap-nav-pill">
+                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                            <span>Demand</span>
+                        </div>
+                        <div class="overlap-nav-pill">
+                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                            <span>Students</span>
+                        </div>
+                        <div class="overlap-nav-pill">
+                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                            <span>ML Models</span>
+                        </div>
+                        <div class="overlap-nav-pill">
+                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <span>Forecasts</span>
+                        </div>
+                        <div class="overlap-nav-pill">
+                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                            <span>Settings</span>
+                        </div>
+                    </div>
+                    <div class="overlap-help-btn">
+                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        <span>Help Request</span>
+                    </div>
+                </div>
+
+                <!-- Mini Main Area -->
+                <div class="overlap-mini-body">
+                    <!-- Top Bar inside preview -->
+                    <div class="overlap-inner-nav">
+                        <div class="overlap-search-bar">
+                            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                            <span>Search courses, metrics...</span>
+                        </div>
+                        <div class="overlap-topbar-actions">
+                            <span class="overlap-pro-badge">Academic Ops</span>
+                            <div class="overlap-icon-btn">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                            </div>
+                            <div class="overlap-user-pill">
+                                <div class="overlap-avatar">AD</div>
+                                <div class="overlap-user-meta">
+                                    <span class="overlap-user-name">Hey, Operations</span>
+                                    <span class="overlap-user-dept">Curriculum Planning</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 Gradient Stat Cards -->
+                    <div class="overlap-stats-row">
+                        <div class="overlap-stat-card card-blue">
+                            <div class="stat-header">
+                                <span class="stat-title">Projected Demand</span>
+                                <span class="stat-badge">+12.4%</span>
+                            </div>
+                            <div class="stat-value">1,482 Sections</div>
+                            <div class="stat-sub">1,318 Sections Previous Term</div>
+                            <div class="stat-sparkline">
+                                <svg viewBox="0 0 100 24" fill="none">
+                                    <path d="M0 20 Q 25 8, 50 14 T 100 4" stroke="#fff" stroke-width="2" fill="none"/>
+                                    <path d="M0 20 Q 25 8, 50 14 T 100 4 L 100 24 L 0 24 Z" fill="rgba(255,255,255,0.15)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="overlap-stat-card card-indigo">
+                            <div class="stat-header">
+                                <span class="stat-title">Model Accuracy</span>
+                                <span class="stat-badge">-0.5% Error</span>
+                            </div>
+                            <div class="stat-value">R² 0.9736</div>
+                            <div class="stat-sub">XGBoost Regressor • 0.64 RMSE</div>
+                            <div class="stat-sparkline">
+                                <svg viewBox="0 0 100 24" fill="none">
+                                    <path d="M0 16 Q 30 22, 60 10 T 100 4" stroke="#fff" stroke-width="2" fill="none"/>
+                                    <path d="M0 16 Q 30 22, 60 10 T 100 4 L 100 24 L 0 24 Z" fill="rgba(255,255,255,0.15)"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts & Performance Row -->
+                    <div class="overlap-charts-row">
+                        <!-- Demand Forecast Curve -->
+                        <div class="overlap-card-box">
+                            <div class="box-header">
+                                <span class="box-title">Section Demand Trajectory</span>
+                                <span class="box-pill">This Academic Year</span>
+                            </div>
+                            <div class="funnel-chart-svg">
+                                <svg viewBox="0 0 260 85" fill="none">
+                                    <defs>
+                                        <linearGradient id="area-grad" x1="0" y1="0" x2="0" y2="85">
+                                            <stop stop-color="#2563EB" stop-opacity="0.25"/>
+                                            <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M0 65 Q 40 45, 80 52 T 160 30 T 260 12 L 260 85 L 0 85 Z" fill="url(#area-grad)"/>
+                                    <path d="M0 65 Q 40 45, 80 52 T 160 30 T 260 12" stroke="#2563EB" stroke-width="2.5" fill="none"/>
+                                    <circle cx="160" cy="30" r="4.5" fill="#2563EB" stroke="#fff" stroke-width="2"/>
+                                    <rect x="135" y="6" width="50" height="18" rx="4" fill="#0F172A"/>
+                                    <text x="160" y="19" fill="#fff" font-size="9" font-weight="600" text-anchor="middle">18 Sec</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Term Load Bar Chart -->
+                        <div class="overlap-card-box">
+                            <div class="box-header">
+                                <span class="box-title">Term Load</span>
+                                <span class="box-pill">Seasonal</span>
+                            </div>
+                            <div class="bar-chart-preview">
+                                <div class="p-bar-col"><div class="p-bar" style="height:55%"></div><span>Sp1</span></div>
+                                <div class="p-bar-col"><div class="p-bar" style="height:35%"></div><span>Su1</span></div>
+                                <div class="p-bar-col"><div class="p-bar accent" style="height:88%"></div><span>Fa1</span></div>
+                                <div class="p-bar-col"><div class="p-bar" style="height:62%"></div><span>Sp2</span></div>
+                                <div class="p-bar-col"><div class="p-bar" style="height:38%"></div><span>Su2</span></div>
+                                <div class="p-bar-col"><div class="p-bar accent" style="height:94%"></div><span>Fa2</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================================================================
+       MAIN APPLICATION SHELL (AFTER LOGIN)
+       ================================================================= -->
+    <div id="app-container">
+        <!-- Left Navigation Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-brand-box">
+                <svg class="sidebar-logo-icon" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="10" fill="#2563EB" />
+                    <path d="M10 28L17 19L23 23L30 13" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <circle cx="30" cy="13" r="3.5" fill="#06B6D4" />
+                </svg>
+                <div class="sidebar-brand-info">
+                    <div class="sidebar-brand-title">DemandForecast <b>AI</b></div>
+                    <div class="sidebar-brand-subtitle">Course Demand Intelligence</div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav-container">
+                <div class="nav-section-title">Core Modules</div>
+                <a class="sidebar-link active" data-page="overview">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                    </svg>
+                    <span>Overview</span>
+                </a>
+
+                <a class="sidebar-link" data-page="dataset">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <ellipse cx="12" cy="5" rx="9" ry="3" />
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                    </svg>
+                    <span>Dataset Management</span>
+                </a>
+
+                <a class="sidebar-link" data-page="eda">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 20V10M12 20V4M6 20v-6" />
+                    </svg>
+                    <span>Data Exploration</span>
+                </a>
+
+                <a class="sidebar-link" data-page="compare">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5" />
+                    </svg>
+                    <span>Model Comparison</span>
+                </a>
+
+                <div class="nav-section-title">ML Algorithms</div>
+                <a class="sidebar-link" data-page="rf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    </svg>
+                    <span>Random Forest</span>
+                </a>
+
+                <a class="sidebar-link" data-page="gb">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                        <polyline points="17 6 23 6 23 12" />
+                    </svg>
+                    <span>Gradient Boosting</span>
+                </a>
+
+                <a class="sidebar-link" data-page="lstm">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="4" y="4" width="16" height="16" rx="2" />
+                        <rect x="9" y="9" width="6" height="6" />
+                        <line x1="9" y1="1" x2="9" y2="4" />
+                        <line x1="15" y1="1" x2="15" y2="4" />
+                        <line x1="9" y1="20" x2="9" y2="23" />
+                        <line x1="15" y1="20" x2="15" y2="23" />
+                    </svg>
+                    <span>LSTM Forecasting</span>
+                </a>
+
+                <a class="sidebar-link" data-page="xgb">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <circle cx="12" cy="12" r="6" />
+                        <circle cx="12" cy="12" r="2" />
+                    </svg>
+                    <span>XGBoost</span>
+                </a>
+
+                <div class="nav-section-title">Operations</div>
+                <a class="sidebar-link" data-page="forecast">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                    </svg>
+                    <span>Forecast Demand</span>
+                </a>
+
+                <a class="sidebar-link" data-page="history">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>Forecast History</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-status-box">
+                    <span style="color:#94A3B8">Service Status</span>
+                    <span style="display:flex;align-items:center;gap:6px;color:#10B981;font-weight:600">
+                        <span class="status-indicator-dot"></span> Online
+                    </span>
+                </div>
+
+                <div class="sidebar-user-row">
+                    <div class="user-meta-left">
+                        <div class="user-avatar">AD</div>
+                        <div class="user-details">
+                            <span class="user-name">Administrator</span>
+                            <span class="user-role">Academic Operations</span>
+                        </div>
+                    </div>
+                    <button id="btn-logout" class="btn-sidebar-logout" title="Sign Out">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                            <polyline points="16 17 21 12 16 7" />
+                            <line x1="21" y1="12" x2="9" y2="12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div id="main-content">
+            <!-- Top Navigation Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Toggle navigation drawer">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </svg>
+                    </button>
+                    <div class="topbar-breadcrumbs">
+                        <span class="breadcrumb-path">DemandForecast AI / <span
+                                id="topbar-breadcrumb-current">Overview</span></span>
+                        <h1 id="topbar-page-title" class="page-main-title">Forecasting Overview</h1>
+                    </div>
+                </div>
+
+                <!-- Global Quick Search Box -->
+                <div class="topbar-center">
+                    <div class="topbar-search-box">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="topbar-quick-search" placeholder="Quick search courses (e.g. CS100), models, data..." oninput="handleGlobalSearch(this.value)">
+                        <span class="search-kbd-shortcut">Ctrl K</span>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <!-- Live Global Status Pills -->
+                    <div id="topbar-status-dataset" class="top-status-pill">
+                        <span class="status-dot"></span> Dataset: Not Loaded
+                    </div>
+                    <div id="topbar-status-split" class="top-status-pill hide-mobile">
+                        <span class="status-dot"></span> Split: Pending
+                    </div>
+                    <div id="topbar-status-model" class="top-status-pill">
+                        <span class="status-dot"></span> Models: Untrained
+                    </div>
+                    <div class="topbar-user-pill">
+                        <div class="topbar-avatar">AD</div>
+                        <div class="topbar-user-text">
+                            <span class="topbar-user-name">Administrator</span>
+                            <span class="topbar-user-role">Operations</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Viewport Pages Container -->
+            <main class="page-viewport">
+
+                <!-- ================= PAGE 1: OVERVIEW ================= -->
+                <section id="page-overview" class="dashboard-page active">
+                    <!-- Hero Banner -->
+                    <div class="overview-hero-card">
+                        <div class="hero-banner-content">
+                            <h1>Academic Course Demand Intelligence</h1>
+                            <p>
+                                Transform historical enrollment patterns into accurate future section forecasts using
+                                Random Forest, Gradient Boosting, Deep LSTM Neural Networks, and XGBoost.
+                            </p>
+                            <div class="hero-action-buttons">
+                                <button class="btn btn-primary" onclick="loadSyntheticDataset()">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                                    </svg>
+                                    Load Sample Dataset
+                                </button>
+                                <button class="btn btn-secondary" onclick="processDataset()">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                    </svg>
+                                    Preprocess & Split 80/20
+                                </button>
+                                <button class="btn btn-outline-blue" onclick="trainAllModels()">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="5 3 19 12 5 21 5 3" />
+                                    </svg>
+                                    Train All Models
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vibrant KPI Metrics Row (Matching Corelytics Reference Screenshot) -->
+                    <div class="kpi-grid-4">
+                        <div class="kpi-card gradient-blue">
+                            <div class="kpi-text-meta">
+                                <span class="kpi-label">Dataset Records</span>
+                                <span id="kpi-total-rows" class="kpi-value">—</span>
+                                <span class="kpi-subtext">Historical semester records</span>
+                                <span class="kpi-badge-pill">+12.4% Surge</span>
+                            </div>
+                            <div class="kpi-sparkline-svg">
+                                <svg viewBox="0 0 100 40" fill="none">
+                                    <path d="M0 35 Q 25 15, 50 25 T 100 8" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    <path d="M0 35 Q 25 15, 50 25 T 100 8 L 100 40 L 0 40 Z" fill="rgba(255,255,255,0.15)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card gradient-indigo">
+                            <div class="kpi-text-meta">
+                                <span class="kpi-label">Monitored Courses</span>
+                                <span id="kpi-total-courses" class="kpi-value">—</span>
+                                <span class="kpi-subtext">Active curriculum catalog</span>
+                                <span class="kpi-badge-pill">6 Faculties</span>
+                            </div>
+                            <div class="kpi-sparkline-svg">
+                                <svg viewBox="0 0 100 40" fill="none">
+                                    <path d="M0 25 Q 30 35, 60 15 T 100 5" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    <path d="M0 25 Q 30 35, 60 15 T 100 5 L 100 40 L 0 40 Z" fill="rgba(255,255,255,0.15)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card gradient-emerald">
+                            <div class="kpi-text-meta">
+                                <span class="kpi-label">Top Model Accuracy</span>
+                                <span id="kpi-best-r2" class="kpi-value">—</span>
+                                <span class="kpi-subtext">R² Variance on test split</span>
+                                <span class="kpi-badge-pill">★ 97.4% Peak R²</span>
+                            </div>
+                            <div class="kpi-sparkline-svg">
+                                <svg viewBox="0 0 100 40" fill="none">
+                                    <path d="M0 30 Q 30 20, 60 25 T 100 4" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    <path d="M0 30 Q 30 20, 60 25 T 100 4 L 100 40 L 0 40 Z" fill="rgba(255,255,255,0.15)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card gradient-purple">
+                            <div class="kpi-text-meta">
+                                <span class="kpi-label">Forecast Audits</span>
+                                <span id="kpi-history-count" class="kpi-value">0</span>
+                                <span class="kpi-subtext">Active projections generated</span>
+                                <span class="kpi-badge-pill">XGBoost Engine</span>
+                            </div>
+                            <div class="kpi-sparkline-svg">
+                                <svg viewBox="0 0 100 40" fill="none">
+                                    <path d="M0 35 Q 25 30, 55 18 T 100 8" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    <path d="M0 35 Q 25 30, 55 18 T 100 8 L 100 40 L 0 40 Z" fill="rgba(255,255,255,0.15)"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive 6-Stage Workflow Progress Stepper -->
+                    <div class="content-card workflow-stepper-card">
+                        <div class="card-header-row">
+                            <div class="card-title-group">
+                                <h2>Forecasting Pipeline Execution Workflow</h2>
+                                <p>Track progress from raw data ingestion through machine-learning evaluation to final
+                                    demand projection.</p>
+                            </div>
+                        </div>
+
+                        <div class="stepper-row">
+                            <div id="step-1" class="stepper-item current">
+                                <div class="stepper-header">
+                                    <span class="step-number">1</span>
+                                    <span class="step-status-icon">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#94A3B8"
+                                            stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="step-name">1. Dataset Load</div>
+                                <div class="step-desc">Ingest CSV historical records</div>
+                            </div>
+
+                            <div id="step-2" class="stepper-item">
+                                <div class="stepper-header">
+                                    <span class="step-number">2</span>
+                                    <span class="step-status-icon">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#94A3B8"
+                                            stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="step-name">2. Preprocessing</div>
+                                <div class="step-desc">Lags, rollings, 80/20 split</div>
+                            </div>
+
+                            <div id="step-3" class="stepper-item">
+                                <div class="stepper-header">
+                                    <span class="step-number">3</span>
+                                    <span class="step-status-icon">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#94A3B8"
+                                            stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="step-name">3. Model Training</div>
+                                <div class="step-desc">RF, GB, LSTM, XGBoost</div>
+                            </div>
+
+                            <div id="step-4" class="stepper-item">
+                                <div class="stepper-header">
+                                    <span class="step-number">4</span>
+                                    <span class="step-status-icon">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#94A3B8"
+                                            stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="step-name">4. Benchmark</div>
+                                <div class="step-desc">Evaluate R² & RMSE metrics</div>
+                            </div>
+
+                            <div id="step-5" class="stepper-item">
+                                <div class="stepper-header">
+                                    <span class="step-number">5</span>
+                                    <span class="step-status-icon">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#94A3B8"
+                                            stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="step-name">5. Demand Forecast</div>
+                                <div class="step-desc">XGBoost multi-horizon forecast</div>
+                            </div>
+
+                            <div id="step-6" class="stepper-item">
+                                <div class="stepper-header">
+                                    <span class="step-number">6</span>
+                                    <span class="step-status-icon">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#94A3B8"
+                                            stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="step-name">6. Audit & History</div>
+                                <div class="step-desc">Log section allocations</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Overview Analytics Charts Grid (Demand Trends & Department Distribution) -->
+                    <div class="overview-charts-grid">
+                        <div class="content-card" style="margin-bottom:0">
+                            <div class="card-header-row">
+                                <div class="card-title-group">
+                                    <h3>Seasonal Section Demand Trajectory</h3>
+                                    <p>Historical semester section demands across Spring, Summer, and Fall terms.</p>
+                                </div>
+                                <span class="pill-badge term-fall">Multi-Term Trends</span>
+                            </div>
+                            <div class="chart-container-box" style="height:270px">
+                                <canvas id="chart-overview-trends"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="content-card" style="margin-bottom:0">
+                            <div class="card-header-row">
+                                <div class="card-title-group">
+                                    <h3>Department Workload Allocation</h3>
+                                    <p>Average course section allocations across CS, MATH, PHY, ENG, BIO, and ECON.</p>
+                                </div>
+                                <span class="pill-badge dept">6 Departments</span>
+                            </div>
+                            <div class="chart-container-box" style="height:270px">
+                                <canvas id="chart-overview-depts"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= PAGE 2: DATASET MANAGEMENT ================= -->
+                <section id="page-dataset" class="dashboard-page">
+                    <div class="content-card">
+                        <div class="card-header-row">
+                            <div class="card-title-group">
+                                <h2>Ingest & Prepare Academic Records</h2>
+                                <p>Upload institutional CSV semester files or instantiate the 10-year synthetic
+                                    curriculum benchmark dataset.</p>
+                            </div>
+                            <div style="display:flex;gap:10px">
+                                <button id="btn-load-synthetic" class="btn btn-secondary"
+                                    onclick="loadSyntheticDataset()">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                                    </svg>
+                                    Use Sample Dataset (Synthetic)
+                                </button>
+                                <button id="btn-process-data" class="btn btn-primary" onclick="processDataset()">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6" />
+                                    </svg>
+                                    Shuffle, Normalize & Split (80/20)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Upload Dropzone -->
+                        <div id="csv-dropzone" class="upload-dropzone">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <div class="dropzone-title">Drag & drop your course CSV here or click to browse</div>
+                            <div class="dropzone-desc">Accepted format: <code>.csv</code> with course, dept, year, term,
+                                t, capacity, enrollment, sections</div>
+                            <input type="file" id="dataset-file-input" accept=".csv" style="display:none">
+                        </div>
+
+                        <!-- Dataset Metadata Summary Badges -->
+                        <div class="kpi-grid-4" style="margin-top:20px;margin-bottom:20px">
+                            <div class="kpi-card" style="padding:14px 18px">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Observations (Rows)</span>
+                                    <span id="meta-ds-rows" class="kpi-value" style="font-size:22px">—</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card" style="padding:14px 18px">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Course Offerings</span>
+                                    <span id="meta-ds-courses" class="kpi-value" style="font-size:22px">—</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card" style="padding:14px 18px">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Departments</span>
+                                    <span id="meta-ds-depts" class="kpi-value" style="font-size:16px">—</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card" style="padding:14px 18px">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Temporal Coverage</span>
+                                    <span id="meta-ds-years" class="kpi-value" style="font-size:18px">—</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preview Table -->
+                        <div class="table-container">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Course Code</th>
+                                        <th>Department</th>
+                                        <th>Academic Year</th>
+                                        <th>Term</th>
+                                        <th>Semester (t)</th>
+                                        <th>Class Capacity</th>
+                                        <th>Enrollment</th>
+                                        <th>Sections Needed</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dataset-preview-tbody">
+                                    <tr>
+                                        <td colspan="8" style="text-align:center;padding:32px;color:var(--text-muted)">
+                                            No dataset loaded yet. Click "Use Sample Dataset (Synthetic)" or drop a CSV
+                                            file above.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= PAGE 3: DATA EXPLORATION (EDA) ================= -->
+                <section id="page-eda" class="dashboard-page">
+                    <div class="content-card">
+                        <div class="card-header-row">
+                            <div class="card-title-group">
+                                <h2>Exploratory Demand Patterns</h2>
+                                <p>Analyze how course section demand distributes across seasonal terms and academic
+                                    departments.</p>
+                            </div>
+                        </div>
+
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+                            <div class="content-card" style="margin-bottom:0">
+                                <h3 style="margin-bottom:12px;font-size:15px;color:var(--text-primary)">Average Sections
+                                    Required by Academic Term</h3>
+                                <p style="font-size:12.5px;color:var(--text-secondary);margin-bottom:14px">
+                                    Seasonal enrollment trends indicate high Fall demand (~1.15x) and reduced Summer
+                                    enrollment (~0.45x).
+                                </p>
+                                <div class="chart-container-box">
+                                    <canvas id="chart-eda-term"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="content-card" style="margin-bottom:0">
+                                <h3 style="margin-bottom:12px;font-size:15px;color:var(--text-primary)">Average Section
+                                    Load by Department</h3>
+                                <p style="font-size:12.5px;color:var(--text-secondary);margin-bottom:14px">
+                                    Mean course section allocations across CS, MATH, PHY, ENG, BIO, and ECON faculties.
+                                </p>
+                                <div class="chart-container-box">
+                                    <canvas id="chart-eda-dept"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= PAGE 4: MODEL COMPARISON ================= -->
+                <section id="page-compare" class="dashboard-page">
+                    <div class="content-card">
+                        <div class="card-header-row">
+                            <div class="card-title-group">
+                                <h2>Multi-Model Evaluation & Benchmark</h2>
+                                <p>Compare coefficient of determination (R²) accuracy and Root Mean Squared Error (RMSE)
+                                    across algorithms.</p>
+                            </div>
+                            <button id="btn-train-all-models" class="btn btn-primary" onclick="trainAllModels()">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                                Train All Four Models
+                            </button>
+                        </div>
+
+                        <!-- Model Benchmark Table -->
+                        <div class="table-container" style="margin-bottom:24px">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Model Architecture</th>
+                                        <th>Configuration / Hyperparameters</th>
+                                        <th>R² Accuracy Score</th>
+                                        <th>RMSE (Loss)</th>
+                                        <th>Training Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="compare-table-tbody">
+                                    <tr>
+                                        <td colspan="6" style="text-align:center;padding:32px;color:var(--text-muted)">
+                                            No models evaluated yet. Click "Train All Four Models" to execute
+                                            evaluation.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Grouped Bar Chart Comparison -->
+                        <div class="content-card" style="margin-bottom:0">
+                            <h3 style="margin-bottom:12px;font-size:15px;color:var(--text-primary)">Side-by-Side Model
+                                Accuracy vs Error</h3>
+                            <div class="chart-container-box">
+                                <canvas id="chart-models-comparison"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= PAGE 5: RANDOM FOREST ================= -->
+                <section id="page-rf" class="dashboard-page">
+                    <div class="content-card">
+                        <div class="card-header-row">
+                            <div class="card-title-group">
+                                <h2>Random Forest Regressor</h2>
+                                <p>Bagging ensemble of 300 decorrelated decision trees with feature sub-sampling.</p>
+                            </div>
+                            <button id="btn-train-rf" class="btn btn-primary" onclick="trainSingleModel('rf')">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                                Train & Evaluate
+                            </button>
+                        </div>
+
+                        <div class="kpi-grid-4" style="margin-bottom:20px">
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">R² Accuracy Score</span>
+                                    <span id="val-r2-rf" class="kpi-value">—</span>
+                                    <span class="kpi-subtext">Higher is better (Max 1.0)</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">RMSE Section Error</span>
+                                    <span id="val-rmse-rf" class="kpi-value">—</span>
+                                    <span class="kpi-subtext">Average section residual error</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Trees in Ensemble</span>
+                                    <span class="kpi-value">300</span>
+                                    <span class="kpi-subtext">n_estimators=300</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Engine Class</span>
+                                    <span class="kpi-value" style="font-size:17px">RandomForest</span>
+                                    <span class="kpi-subtext">scikit-learn ensemble</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-card" style="margin-bottom:20px">
+                            <h3 style="margin-bottom:12px;font-size:15px;color:var(--text-primary)">Ground Truth vs.
+                                Random Forest Predicted Sections (Test Split)</h3>
+                            <div class="chart-container-box">
+                                <canvas id="chart-eval-rf"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Test Split Observation</th>
+                                        <th>Actual Required Sections</th>
+                                        <th>Predicted Required Sections</th>
+                                        <th>Prediction Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sample-table-rf">
+                                    <tr>
+                                        <td colspan="4" style="text-align:center;padding:20px;color:var(--text-muted)">
+                                            Train model to inspect sample residuals.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= PAGE 6: GRADIENT BOOSTING ================= -->
+                <section id="page-gb" class="dashboard-page">
+                    <div class="content-card">
+                        <div class="card-header-row">
+                            <div class="card-title-group">
+                                <h2>Gradient Boosting Regressor</h2>
+                                <p>Sequential boosting model iteratively fitting shallow regression trees to the
+                                    pseudo-residuals.</p>
+                            </div>
+                            <button id="btn-train-gb" class="btn btn-primary" onclick="trainSingleModel('gb')">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                                Train & Evaluate
+                            </button>
+                        </div>
+
+                        <div class="kpi-grid-4" style="margin-bottom:20px">
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">R² Accuracy Score</span>
+                                    <span id="val-r2-gb" class="kpi-value">—</span>
+                                    <span class="kpi-subtext">Higher is better (Max 1.0)</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">RMSE Section Error</span>
+                                    <span id="val-rmse-gb" class="kpi-value">—</span>
+                                    <span class="kpi-subtext">Average section residual error</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Learning Rate</span>
+                                    <span class="kpi-value">0.05</span>
+                                    <span class="kpi-subtext">Step shrinkage rate</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Total Stages</span>
+                                    <span class="kpi-value">300</span>
+                                    <span class="kpi-subtext">n_estimators=300</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-card" style="margin-bottom:20px">
+                            <h3 style="margin-bottom:12px;font-size:15px;color:var(--text-primary)">Ground Truth vs.
+                                Gradient Boosting Predicted Sections (Test Split)</h3>
+                            <div class="chart-container-box">
+                                <canvas id="chart-eval-gb"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Test Split Observation</th>
+                                        <th>Actual Required Sections</th>
+                                        <th>Predicted Required Sections</th>
+                                        <th>Prediction Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sample-table-gb">
+                                    <tr>
+                                        <td colspan="4" style="text-align:center;padding:20px;color:var(--text-muted)">
+                                            Train model to inspect sample residuals.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= PAGE 7: LSTM FORECASTING ================= -->
+                <section id="page-lstm" class="dashboard-page">
+                    <div class="content-card">
+                        <div class="card-header-row">
+                            <div class="card-title-group">
+                                <h2>LSTM Neural Network Forecasting</h2>
+                                <p>Sequential deep neural network architecture engineered to capture recurrent
+                                    time-series memory patterns.</p>
+                            </div>
+                            <button id="btn-train-lstm" class="btn btn-primary" onclick="trainSingleModel('lstm')">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                                Train & Evaluate
+                            </button>
+                        </div>
+
+                        <!-- Transparent Engine Banner (Explicitly identifies TensorFlow vs Scikit-Learn MLP Fallback) -->
+                        <div id="lstm-engine-banner" class="engine-notice-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="12" />
+                                <line x1="12" y1="16" x2="12.01" y2="16" />
+                            </svg>
+                            <div class="engine-notice-text">
+                                <strong>Model Engine Transparency:</strong> LSTM evaluation executes TensorFlow Keras if
+                                available; otherwise smoothly defaults to Scikit-Learn Multi-Layer Perceptron Regressor
+                                (64, 32 units, 800 iterations) with exact labeling.
+                            </div>
+                        </div>
+
+                        <div class="kpi-grid-4" style="margin-bottom:20px">
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">R² Accuracy Score</span>
+                                    <span id="val-r2-lstm" class="kpi-value">—</span>
+                                    <span class="kpi-subtext">Higher is better (Max 1.0)</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">RMSE Section Error</span>
+                                    <span id="val-rmse-lstm" class="kpi-value">—</span>
+                                    <span class="kpi-subtext">Average section residual error</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Hidden Units</span>
+                                    <span class="kpi-value">48 / 64</span>
+                                    <span class="kpi-subtext">Recurrent / dense neurons</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Optimizer</span>
+                                    <span class="kpi-value" style="font-size:18px">Adam / LBFGS</span>
+                                    <span class="kpi-subtext">Loss function: MSE</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-card" style="margin-bottom:20px">
+                            <h3 style="margin-bottom:12px;font-size:15px;color:var(--text-primary)">Ground Truth vs.
+                                Neural Network Predicted Sections (Test Split)</h3>
+                            <div class="chart-container-box">
+                                <canvas id="chart-eval-lstm"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Test Split Observation</th>
+                                        <th>Actual Required Sections</th>
+                                        <th>Predicted Required Sections</th>
+                                        <th>Prediction Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sample-table-lstm">
+                                    <tr>
+                                        <td colspan="4" style="text-align:center;padding:20px;color:var(--text-muted)">
+                                            Train model to inspect sample residuals.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= PAGE 8: XGBOOST ================= -->
+                <section id="page-xgb" class="dashboard-page">
+                    <div class="content-card">
+                        <div class="card-header-row">
+                            <div class="card-title-group">
+                                <h2>XGBoost Regressor</h2>
+                                <p>Extreme Gradient Boosting algorithm optimized for tabular feature splits and
+                                    regularized objective functions.</p>
+                            </div>
+                            <button id="btn-train-xgb" class="btn btn-primary" onclick="trainSingleModel('xgb')">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                                Train & Evaluate
+                            </button>
+                        </div>
+
+                        <div class="kpi-grid-4" style="margin-bottom:20px">
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">R² Accuracy Score</span>
+                                    <span id="val-r2-xgb" class="kpi-value">—</span>
+                                    <span class="kpi-subtext">Production Forecaster Engine</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">RMSE Section Error</span>
+                                    <span id="val-rmse-xgb" class="kpi-value">—</span>
+                                    <span class="kpi-subtext">Residual error on test split</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Trees in Ensemble</span>
+                                    <span class="kpi-value">500</span>
+                                    <span class="kpi-subtext">Max depth: 5, Subsample: 0.9</span>
+                                </div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-text-meta">
+                                    <span class="kpi-label">Deployment Role</span>
+                                    <span class="kpi-value" style="font-size:16px;color:var(--primary-blue)">Primary
+                                        Engine</span>
+                                    <span class="kpi-subtext">Powers Module 9 Forecaster</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-card" style="margin-bottom:20px">
+                            <h3 style="margin-bottom:12px;font-size:15px;color:var(--text-primary)">Ground Truth vs.
+                                XGBoost Predicted Sections (Test Split)</h3>
+                            <div class="chart-container-box">
+                                <canvas id="chart-eval-xgb"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Test Split Observation</th>
+                                        <th>Actual Required Sections</th>
+                                        <th>Predicted Required Sections</th>
+                                        <th>Prediction Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sample-table-xgb">
+                                    <tr>
+                                        <td colspan="4" style="text-align:center;padding:20px;color:var(--text-muted)">
+                                            Train model to inspect sample residuals.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= PAGE 9: FORECAST DEMAND ================= -->
+                <section id="page-forecast" class="dashboard-page">
+                    <div class="content-card">
+                        <div class="card-header-row">
+                            <div class="card-title-group">
+                                <h2>Course Demand Section Forecaster</h2>
+                                <p>Deploy the trained XGBoost model to generate multi-semester future section demand
+                                    projections.</p>
+                            </div>
+                        </div>
+
+                        <!-- Parameters Selection Controls -->
+                        <div
+                            style="background:#F8FAFC;border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:22px;margin-bottom:24px">
+                            <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:18px;align-items:end">
+                                <div class="input-group">
+                                    <label class="input-label" for="forecast-course-select">Target Course Catalog
+                                        Code</label>
+                                    <select id="forecast-course-select" class="form-input" style="padding-left:14px">
+                                        <option value="">Loading courses...</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label class="input-label" for="forecast-horizon-input">Projection Horizon
+                                        (Semesters Ahead)</label>
+                                    <div style="display:flex;gap:8px">
+                                        <input id="forecast-horizon-input" class="form-input" type="number" value="3"
+                                            min="1" max="12" style="padding-left:14px">
+                                        <button class="btn btn-secondary" onclick="setHorizon(3)"
+                                            style="padding:8px 12px;font-size:12px">+1 Yr</button>
+                                        <button class="btn btn-secondary" onclick="setHorizon(6)"
+                                            style="padding:8px 12px;font-size:12px">+2 Yrs</button>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <button id="btn-run-forecast" class="btn btn-primary" onclick="generateForecast()"
+                                        style="width:100%;height:45px">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                                        </svg>
+                                        Generate Demand Forecast
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Forecast Line Chart (Historical solid + Forecast dashed cyan) -->
+                        <div class="content-card" style="margin-bottom:24px">
+                            <div class="card-header-row">
+                                <div class="card-title-group">
+                                    <h3>Historical Trend vs. Future Forecast Projection</h3>
+                                    <p>Dark curve: Recent 12 semesters historical sections. Cyan dashed curve: Future
+                                        projected semester requirements.</p>
+                                </div>
+                            </div>
+                            <div class="chart-container-box" style="height:320px">
+                                <canvas id="chart-forecast-curve"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Projected Schedule Table -->
+                        <div class="content-card" style="margin-bottom:0">
+                            <div class="card-header-row">
+                                <div class="card-title-group">
+                                    <h3>Recommended Course Section Schedule</h3>
+                                    <p>Operational schedule with projected classroom capacity and allocation
+                                        recommendations.</p>
+                                </div>
+                            </div>
+
+                            <div class="table-container">
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Academic Semester</th>
+                                            <th>Season Term</th>
+                                            <th>Projected Sections Needed</th>
+                                            <th>Student Demand Estimate</th>
+                                            <th>Planning Allocation Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="forecast-schedule-tbody">
+                                        <tr>
+                                            <td colspan="5"
+                                                style="text-align:center;padding:28px;color:var(--text-muted)">
+                                                Select a course and click "Generate Demand Forecast" to view projection
+                                                schedule.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= PAGE 10: FORECAST HISTORY ================= -->
+                <section id="page-history" class="dashboard-page">
+                    <div class="content-card">
+                        <div class="card-header-row">
+                            <div class="card-title-group">
+                                <h2>Forecast Session Audit History</h2>
+                                <p>Comprehensive audit log of all section forecasts generated in the current workspace
+                                    session.</p>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:10px">
+                                <input id="history-search-input" class="form-input" type="text"
+                                    placeholder="Filter by course..." style="padding-left:14px;width:220px"
+                                    oninput="filterHistory()">
+                                <button class="btn btn-secondary" onclick="loadForecastHistory()">
+                                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="23 4 23 10 17 10" />
+                                        <polyline points="1 20 1 14 7 14" />
+                                        <path
+                                            d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                                    </svg>
+                                    Refresh Log
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Log Index</th>
+                                        <th>Target Course</th>
+                                        <th>Horizon Window</th>
+                                        <th>Forecasted Sections Schedule</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="history-table-tbody">
+                                    <tr>
+                                        <td colspan="4" style="text-align:center;padding:32px;color:var(--text-muted)">
+                                            No forecast records stored yet.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <!-- Core Application Script -->
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

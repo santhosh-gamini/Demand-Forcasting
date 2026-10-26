@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+gunicorn
+pandas
+numpy
+scikit-learn
+xgboost
+python-multipart
+httpx
+# optional, for the real LSTM (falls back to an MLP if missing):
+# tensorflow
